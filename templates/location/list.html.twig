@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h1>List locations</h1>
+
+    <a href="{{ path('location_create') }}" class="btn btn-primary">
+        <span class="glyphicon glyphicon-plus"></span> Add
+    </a>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Country</th>
+            <th>Region</th>
+            <th>City</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for location in locations %}
+                <tr>
+                    <td>#{{ location.id }}</td>
+                    <td>{{ location.city.region.country.name }}</td>
+                    <td>{{ location.city.region.name }}</td>
+                    <td>{{ location.city.name }}</td>
+                    <td>
+                        <a href="{{ path('location_edit', {id: location.id}) }}" class="btn btn-warning">
+                            <span class="glyphicon glyphicon-edit"></span> Edit
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

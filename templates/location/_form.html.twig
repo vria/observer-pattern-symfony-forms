@@ -1,0 +1,10 @@
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{{ form_start(form) }}
+    {{ form_row(form.country) }}
+    {{ form_row(form.region) }}
+    {{ form_row(form.city) }}
+    {% block actions %}
+        <a href="{{ path('location_list') }}">Back to list</a>
+    {% endblock %}
+{{ form_end(form) }}

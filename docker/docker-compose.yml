@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+    db:
+        image: mysql:5.7.24
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+        ports:
+            - 3306:3306
+
+    php:
+        build:
+            context: php7-fpm
+        volumes:
+            - ../:/var/www/symfony
+        links:
+          - db:db
+
+    nginx:
+        build: nginx
+        ports:
+            - 80:80
+        volumes_from:
+            - php
+        volumes:
+            - ./logs/nginx:/var/log/nginx

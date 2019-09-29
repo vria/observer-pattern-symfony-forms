@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h1>Edit location #{{ form.vars.data.id }}</h1>
+
+    {% embed 'location/_form.html.twig' %}
+        {% block actions %}
+            <button class="btn btn-warning">Save modifications</button>
+            {{ parent() }}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('/js/location_form.js') }}"></script>
+{% endblock %}
