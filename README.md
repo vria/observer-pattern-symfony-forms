@@ -47,7 +47,6 @@ docker-compose up -d
 ```
 
 [form events]: https://symfony.com/doc/current/form/events.html
-[more ample description]: http://vria.eu/observer_pattern_in_symfony_forms/
 [LocationController]: src/Controller/LocationController.php
 [list locations]: src/Controller/LocationController.php#L44
 [create location]: src/Controller/LocationController.php#L66
